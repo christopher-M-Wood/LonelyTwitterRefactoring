@@ -6,18 +6,18 @@ import java.util.Date;
  * Created by critt on 2018-03-14.
  */
 
-public class NormalLonelyTweet extends LonelyTweet {
-
-    public NormalLonelyTweet(){
+public class ImportantLonelyTweet extends LonelyTweet {
+    
+    public ImportantLonelyTweet(){
         super();
     }
 
-    public NormalLonelyTweet(String text, Date date){
+    public ImportantLonelyTweet(String text, Date date){
         super(text,date);
     }
 
     @Override
     public String getTweetBody(){
-        return this.tweetBody;
+        return this.tweetBody.toUpperCase();
     }
 }
