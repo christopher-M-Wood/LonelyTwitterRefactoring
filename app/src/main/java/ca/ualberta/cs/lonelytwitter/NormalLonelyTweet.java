@@ -18,4 +18,18 @@ public class NormalLonelyTweet extends LonelyTweet {
     public String getTweetBody(){
         return this.tweetBody;
     }
+
+    @Override
+    public boolean isValid() {
+        if (tweetBody.trim().length() == 0
+                || tweetBody.trim().length() > 10) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return getTweetDate() + " | " + getTweetBody() ;
+    }
 }

@@ -43,8 +43,8 @@ public class LonelyTwitterActivity extends Activity {
 		String text = bodyText.getText().toString();
 
 		LonelyTweet tweet;
+		tweet = newNormalOrImportantTweet(text);
 
-		tweet = new LonelyTweet(text);
 
 		//TODO: use different sub-classes (Normal or Important) based on usage of "*" in the text.
 		
@@ -57,6 +57,16 @@ public class LonelyTwitterActivity extends Activity {
 		} else {
 			Toast.makeText(this, "Invalid tweet", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	private LonelyTweet newNormalOrImportantTweet(String text) {
+		LonelyTweet tweet;
+		if(text.contains("*")){
+			tweet = new ImportantLonelyTweet(text);
+		} else{
+			tweet = new NormalLonelyTweet(text);
+		}
+		return tweet;
 	}
 
 	public void clear(View v) {

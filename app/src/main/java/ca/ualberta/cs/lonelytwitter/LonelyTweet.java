@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
-public class LonelyTweet implements Serializable {
+public abstract class LonelyTweet implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	protected Date tweetDate;
@@ -26,10 +26,6 @@ public class LonelyTweet implements Serializable {
 		this.tweetDate = tweetDate;
 	}
 
-	public String getTweetBody() {
-		return tweetBody;
-	}
-
 	public void setTweetBody(String tweetBody) {
 		this.tweetBody = tweetBody;
 	}
@@ -45,16 +41,7 @@ public class LonelyTweet implements Serializable {
 		tweetBody = (String) in.readObject();
 	}
 
-	public boolean isValid() {
-		if (tweetBody.trim().length() == 0
-				|| tweetBody.trim().length() > 10) {
-			return false;
-		}
-		return true;
-	}
+	public abstract boolean isValid();
 
-	@Override
-	public String toString() {
-		return getTweetDate() + " | " + getTweetBody() ;
-	}
+	public abstract String getTweetBody();
 }

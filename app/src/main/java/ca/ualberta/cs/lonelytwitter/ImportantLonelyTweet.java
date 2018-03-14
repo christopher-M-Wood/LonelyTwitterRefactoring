@@ -16,7 +16,7 @@ public class ImportantLonelyTweet extends LonelyTweet {
 
     @Override
     public String getTweetBody(){
-        return this.tweetBody.toUpperCase();
+        return tweetBody.toUpperCase();
     }
 
     @Override
@@ -26,5 +26,10 @@ public class ImportantLonelyTweet extends LonelyTweet {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return getTweetDate() + " | " + getTweetBody();
     }
 }
