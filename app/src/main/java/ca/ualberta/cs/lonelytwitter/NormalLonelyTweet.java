@@ -1,7 +1,5 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
-
 /**
  * Created by critt on 2018-03-14.
  */
@@ -12,8 +10,8 @@ public class NormalLonelyTweet extends LonelyTweet {
         super();
     }
 
-    public NormalLonelyTweet(String text, Date date){
-        super(text,date);
+    public NormalLonelyTweet(String text){
+        super(text);
     }
 
     @Override

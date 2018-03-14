@@ -1,6 +1,5 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -45,7 +44,7 @@ public class LonelyTwitterActivity extends Activity {
 
 		LonelyTweet tweet;
 
-		tweet = new LonelyTweet(text, new Date());
+		tweet = new LonelyTweet(text);
 
 		//TODO: use different sub-classes (Normal or Important) based on usage of "*" in the text.
 		

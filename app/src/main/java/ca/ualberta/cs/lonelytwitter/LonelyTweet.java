@@ -13,8 +13,8 @@ public class LonelyTweet implements Serializable {
 	public LonelyTweet() {
 	}
 
-	public LonelyTweet(String text, Date date) {
-		this.tweetDate = date;
+	public LonelyTweet(String text) {
+		this.tweetDate = new Date();
 		this.tweetBody = text;
 	}
 
@@ -50,7 +50,6 @@ public class LonelyTweet implements Serializable {
 				|| tweetBody.trim().length() > 10) {
 			return false;
 		}
-
 		return true;
 	}
 
