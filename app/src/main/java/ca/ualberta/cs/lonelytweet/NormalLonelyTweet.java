@@ -1,4 +1,4 @@
-package ca.ualberta.cs.lonelytwitter;
+package ca.ualberta.cs.lonelytweet;
 
 /**
  * Created by critt on 2018-03-14.
@@ -28,7 +28,6 @@ public class NormalLonelyTweet extends LonelyTweet {
         return true;
     }
 
-    @Override
     public String toString() {
         return getTweetDate() + " | " + getTweetBody() ;
     }

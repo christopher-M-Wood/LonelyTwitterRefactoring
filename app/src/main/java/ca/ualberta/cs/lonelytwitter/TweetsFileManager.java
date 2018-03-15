@@ -12,9 +12,11 @@ import java.util.List;
 import android.content.Context;
 import android.util.Log;
 
+import ca.ualberta.cs.lonelytweet.LonelyTweet;
+
 public class TweetsFileManager {
 
-	private String fileName = "file.sav";
+	private String FILE_NAME = "file.sav";
 	private Context ctx;
 
 	public TweetsFileManager(Context ctx) {
@@ -50,7 +52,7 @@ public class TweetsFileManager {
 
 	public void saveTweets(List<LonelyTweet> tweets) {
 		try {
-			FileOutputStream fos = ctx.openFileOutput(fileName, 0);
+			FileOutputStream fos = ctx.openFileOutput(FILE_NAME, 0);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(tweets);

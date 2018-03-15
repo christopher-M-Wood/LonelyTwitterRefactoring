@@ -1,4 +1,6 @@
-package ca.ualberta.cs.lonelytwitter;
+package ca.ualberta.cs.lonelytweet;
+
+import android.util.Log;
 
 /**
  * Created by critt on 2018-03-14.
@@ -28,8 +30,9 @@ public class ImportantLonelyTweet extends LonelyTweet {
         return true;
     }
 
-    @Override
     public String toString() {
-        return getTweetDate() + " | " + getTweetBody();
+        String string = getTweetDate() + " | " + getTweetBody();
+        Log.i("ImprotantLonelyTweet",string);
+        return string;
     }
 }

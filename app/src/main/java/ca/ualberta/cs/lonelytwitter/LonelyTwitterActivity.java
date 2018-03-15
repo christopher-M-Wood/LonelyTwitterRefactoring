@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import ca.ualberta.cs.lonelytweet.ImportantLonelyTweet;
+import ca.ualberta.cs.lonelytweet.LonelyTweet;
+import ca.ualberta.cs.lonelytweet.NormalLonelyTweet;
+
 public class LonelyTwitterActivity extends Activity {
 
 	private EditText bodyText;
@@ -33,9 +37,9 @@ public class LonelyTwitterActivity extends Activity {
 		super.onStart();
 
 		tweetsProvider = new TweetsFileManager(this);
-		tweets = tweetsProvider.loadTweets();
+		setTweets(tweetsProvider.loadTweets());
 		adapter = new ArrayAdapter<LonelyTweet>(this, R.layout.list_item,
-				tweets);
+				getTweets());
 		oldTweetsList.setAdapter(adapter);
 	}
 
@@ -49,11 +53,11 @@ public class LonelyTwitterActivity extends Activity {
 		//TODO: use different sub-classes (Normal or Important) based on usage of "*" in the text.
 		
 		if (tweet.isValid()) {
-			tweets.add(tweet);
+			getTweets().add(tweet);
 			adapter.notifyDataSetChanged();
 
 			bodyText.setText("");
-			tweetsProvider.saveTweets(tweets);
+			tweetsProvider.saveTweets(getTweets());
 		} else {
 			Toast.makeText(this, "Invalid tweet", Toast.LENGTH_SHORT).show();
 		}
@@ -70,9 +74,16 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	public void clear(View v) {
-		tweets.clear();
+		getTweets().clear();
 		adapter.notifyDataSetChanged();
-		tweetsProvider.saveTweets(tweets);
+		tweetsProvider.saveTweets(getTweets());
 	}
 
+	public List<LonelyTweet> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(List<LonelyTweet> tweets) {
+		this.tweets = tweets;
+	}
 }
